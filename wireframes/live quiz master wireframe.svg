@@ -29,14 +29,20 @@
   <rect x="205.482" y="73.184" width="5.575" height="5.432" style="fill: rgb(216, 216, 216); stroke: rgb(0, 30, 255);"/>
   <line style="stroke: rgb(0, 30, 255);" x1="206.763" y1="74.68" x2="209.908" y2="77.253"/>
   <line style="stroke: rgb(0, 30, 255);" x1="207.269" y1="77.33" x2="210.127" y2="74.614"/>
-  <rect x="540.834" y="177.023" width="194.922" height="286.259" style="fill: rgb(216, 216, 216);"/>
-  <rect x="543.879" y="180.932" width="160.347" height="24.377" style="fill: rgb(255, 255, 255);"/>
-  <text x="393.825" y="139.761" style="white-space: pre; fill: rgb(51, 51, 51); font-family: Oswald; font-size: 28px;" transform="matrix(0.455243, 0, 0, 0.530735, 370.003326, 124.035027)">http://my.live.quiz.game/game1</text>
-  <rect x="555.255" y="221.561" width="166.306" height="228.602" style="fill: rgb(255, 255, 255);"/>
-  <rect x="564.464" y="237.271" width="144.637" height="37.378" style="fill: rgb(0, 128, 0);"/>
-  <rect x="564.194" y="289.546" width="144.637" height="37.378" style="fill: red;"/>
-  <rect x="565.819" y="344.8" width="144.637" height="37.378" style="fill: rgb(0, 0, 255);"/>
-  <rect x="564.735" y="397.888" width="144.637" height="37.378" style="fill: rgb(255, 255, 0);"/>
+  <g transform="matrix(0.296033, 0, 0, 0.296033, 348.22644, -23.269028)" style="">
+    <rect x="540.834" y="177.023" width="194.922" height="286.259" style="fill: rgb(216, 216, 216);"/>
+    <rect x="543.879" y="180.932" width="160.347" height="24.377" style="fill: rgb(255, 255, 255);"/>
+    <text x="393.825" y="139.761" style="white-space: pre; fill: rgb(51, 51, 51); font-family: Oswald; font-size: 28px;" transform="matrix(0.455243, 0, 0, 0.530735, 370.003326, 124.035027)">http://my.live.quiz.game/game1</text>
+    <rect x="555.255" y="221.561" width="166.306" height="228.602" style="fill: rgb(255, 255, 255);"/>
+    <rect x="564.464" y="237.271" width="144.637" height="37.378" style="fill: rgb(0, 128, 0);"/>
+    <rect x="564.194" y="289.546" width="144.637" height="37.378" style="fill: red;"/>
+    <rect x="565.819" y="344.8" width="144.637" height="37.378" style="fill: rgb(0, 0, 255);"/>
+    <rect x="564.735" y="397.888" width="144.637" height="37.378" style="fill: rgb(255, 255, 0);"/>
+    <text style="fill: rgb(255, 255, 255); font-family: Oswald; font-size: 28px; white-space: pre;" x="628.928" y="267.064">A</text>
+    <text style="fill: rgb(255, 255, 255); font-family: Oswald; font-size: 28px; white-space: pre;" x="628.554" y="318.811">B</text>
+    <text style="fill: rgb(255, 255, 255); font-family: Oswald; font-size: 28px; white-space: pre;" x="629.638" y="375.149">C</text>
+    <text style="font-family: Oswald; font-size: 28px; white-space: pre;" x="628.554" y="426.612">D</text>
+  </g>
   <g style="" transform="matrix(0.305431, 0, 0, 0.305431, 223.204163, -15.141924)">
     <rect x="12.506" y="139.644" width="194.922" height="286.259" style="fill: rgb(216, 216, 216);"/>
     <rect x="15.551" y="143.553" width="160.347" height="24.377" style="fill: rgb(255, 255, 255);"/>
@@ -57,19 +63,19 @@
     <rect x="250.001" y="293.88" width="144.637" height="34.669" style="fill: rgb(255, 255, 255); stroke: rgb(0, 0, 0);"/>
     <line style="stroke: rgb(0, 0, 0);" x1="256.772" y1="300.651" x2="256.772" y2="322.966"/>
   </g>
-  <rect x="43.384" y="174.855" width="194.922" height="286.259" style="fill: rgb(216, 216, 216);"/>
-  <rect x="46.429" y="178.764" width="160.347" height="24.377" style="fill: rgb(255, 255, 255);"/>
-  <text x="393.825" y="139.761" style="white-space: pre; fill: rgb(51, 51, 51); font-family: Oswald; font-size: 28px;" transform="matrix(0.455243, 0, 0, 0.530735, -127.446587, 121.867775)">http://my.live.quiz.game/game1</text>
-  <rect x="57.805" y="219.393" width="166.306" height="228.602" style="fill: rgb(255, 255, 255);"/>
-  <text x="97.508" y="284.94" style="white-space: pre; fill: rgb(51, 51, 51); font-family: Oswald; font-size: 28px;" transform="matrix(0.729549, 0, 0, 0.665817, 19.326689, 130.040344)">Waiting for <tspan x="97.50800323486328" dy="1em">​</tspan>Game to begin</text>
-  <text style="fill: rgb(255, 255, 255); font-family: Oswald; font-size: 28px; white-space: pre;" x="628.928" y="267.064">A</text>
-  <text style="fill: rgb(255, 255, 255); font-family: Oswald; font-size: 28px; white-space: pre;" x="628.554" y="318.811">B</text>
-  <text style="fill: rgb(255, 255, 255); font-family: Oswald; font-size: 28px; white-space: pre;" x="629.638" y="375.149">C</text>
-  <text style="font-family: Oswald; font-size: 28px; white-space: pre;" x="628.554" y="426.612">D</text>
-  <rect x="264.402" y="179.189" width="194.922" height="286.259" style="fill: rgb(216, 216, 216);"/>
-  <rect x="267.447" y="183.098" width="160.347" height="24.377" style="fill: rgb(255, 255, 255);"/>
-  <text x="393.825" y="139.761" style="white-space: pre; fill: rgb(51, 51, 51); font-family: Oswald; font-size: 28px;" transform="matrix(0.455243, 0, 0, 0.530735, 93.571915, 126.201813)">http://my.live.quiz.game/host</text>
-  <rect x="278.823" y="223.727" width="166.306" height="228.602" style="fill: rgb(255, 255, 255);"/>
-  <text x="97.508" y="284.94" style="white-space: pre; fill: rgb(51, 51, 51); font-family: Oswald; font-size: 28px;" transform="matrix(0.729549, 0, 0, 0.665817, 248.470871, 62.868412)">Host a Game</text>
-  <text x="97.508" y="284.94" style="white-space: pre; fill: rgb(51, 51, 51); font-family: Oswald; font-size: 28px;" transform="matrix(0.729549, 0, 0, 0.665817, 239.844681, 125.965146)">Host a Game</text>
+  <g style="" transform="matrix(1.265059, 0, 0, 1.265059, -96.789253, -7.148114)">
+    <rect x="365.161" y="26.968" width="47.006" height="69.033" style="fill: rgb(216, 216, 216);"/>
+    <rect x="365.895" y="27.911" width="38.668" height="5.879" style="fill: rgb(255, 255, 255);"/>
+    <text x="393.825" y="139.761" style="white-space: pre; fill: rgb(51, 51, 51); font-family: Oswald; font-size: 28px;" transform="matrix(0.109784, 0, 0, 0.127989, 323.964294, 14.189577)">http://my.live.quiz.game/game1</text>
+    <rect x="368.639" y="37.709" width="40.105" height="55.128" style="fill: rgb(255, 255, 255);"/>
+    <text x="97.508" y="284.94" style="white-space: pre; fill: rgb(51, 51, 51); font-family: Oswald; font-size: 28px;" transform="matrix(0.175934, 0, 0, 0.160565, 359.359283, 16.160418)">Waiting for <tspan x="97.50800323486328" dy="1em">​</tspan>Game to begin</text>
+  </g>
+  <g style="" transform="matrix(0.303603, 0, 0, 0.303603, 355.309753, -26.350891)">
+    <rect x="264.402" y="179.189" width="194.922" height="286.259" style="fill: rgb(216, 216, 216);"/>
+    <rect x="267.447" y="183.098" width="160.347" height="24.377" style="fill: rgb(255, 255, 255);"/>
+    <text x="393.825" y="139.761" style="white-space: pre; fill: rgb(51, 51, 51); font-family: Oswald; font-size: 28px;" transform="matrix(0.455243, 0, 0, 0.530735, 93.571915, 126.201813)">http://my.live.quiz.game/host</text>
+    <rect x="278.823" y="223.727" width="166.306" height="228.602" style="fill: rgb(255, 255, 255);"/>
+    <text x="97.508" y="284.94" style="white-space: pre; fill: rgb(51, 51, 51); font-family: Oswald; font-size: 28px;" transform="matrix(0.729549, 0, 0, 0.665817, 248.470871, 62.868412)">Host a Game</text>
+    <text x="97.508" y="284.94" style="white-space: pre; fill: rgb(51, 51, 51); font-family: Oswald; font-size: 28px;" transform="matrix(0.729549, 0, 0, 0.665817, 239.844681, 125.965149)">Host a Game</text>
+  </g>
 </svg>
