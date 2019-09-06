@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withQuestion } from './QuestionProvider'
+import { withQuestion } from '../QuestionProvider'
 
 class NewPlayer extends Component {
     constructor(){

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom' 
-import NewPlayer from './NewPlayer'
-import SelectCategory from './SelectCategory'
+import NewPlayer from './Player/NewPlayer'
+import SelectCategory from './Player/SelectCategory'
 
 
 const App = () => {
