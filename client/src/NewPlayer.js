@@ -9,10 +9,10 @@ class NewPlayer extends Component {
     render() {
         return(
             <div>Hello
-                <button onClick = {() => console.log(this.props)} >ConsoleLogState</button>
+                <button onClick = {() => console.log(this.props.quizQuestion)} >ConsoleLogProps</button>
             </div>
         )
     }
 }
 
-export default withQuestion(NewPlayer)
+export default withQuestion( NewPlayer )

@@ -7,7 +7,7 @@ class QuestionProvider extends Component{
     constructor (){
         super ()
         this.state = {
-            quizQuestions: []
+            quizQuestion: []
         }
     }
     componentDidMount(){
