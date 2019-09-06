@@ -4,6 +4,7 @@ const questionRouter = express.Router()
 
 questionRouter.route('/')
     .get((req,res)=>{
+        console.log(req.body);
         Questions.find((err,question)=>{
             if(err) return res.status(500).send(err)
             return res.status(200).send(question) 

@@ -9,6 +9,8 @@ mongoose.connect('mongodb://localhost:27017/quiz',{useNewUrlParser: true})
 
 app.use('/',express.json())
 app.use('/questions',require('./routes/questionRoute'))
+app.use('/category',require('./routes/categoryRoute'))
+
 
 
 app.listen(PORT,()=>{console.log('listening')})
