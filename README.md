@@ -5,10 +5,12 @@ an interactive, muti-device, trivia site where the trivia master can create and 
 # API reference
 
 To get a list of all categories
+```javascript
     axios.get('localhost:99/category')
-
+```
 To change name of a category
+```javascript
     axios.put('localhost:99/category/OLDNAME',{category: NEWNAME})
-
+```
 
 
