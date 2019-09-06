@@ -19,5 +19,14 @@ categoryRouter.route('/:category')
             return res.status(200).send(question) 
         })
     })
+    .put((req,res)=>{
+        console.log(req.params.category,req.body)
+        Questions.updateMany({ category: req.params.category},req.body,(err,updateRes)=>{
+            if(err) return res.sendStatus(500).send(err)
+            return res.sendStatus(200).send(updateRes.n)
+        })
+
+
+    })
 
 module.exports = categoryRouter
