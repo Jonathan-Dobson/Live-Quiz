@@ -2,50 +2,24 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const questionSchema = new Schema({
-    question: {
-        type: String,
-        required: true
-    },
+    category: String,
+    question: String,
     answerA: {
-        answer: {
-            type: String,
-            required: true
-        },
-        correct: {
-            type: Boolean,
-            required: false
-        }
+        answer: String,
+        correct: Boolean
     },    
     answerB: {
-        answer: {
-            type: String,
-            required: true
-        },
-        correct: {
-            type: Boolean,
-            required: false
-        }
-    },    
+        answer: String,
+        correct: Boolean
+    }, 
     answerC: {
-        answer: {
-            type: String,
-            required: false
-        },
-        correct: {
-            type: Boolean,
-            required: false
-        }
-    },    
+        answer: String,
+        correct: Boolean
+    }, 
     answerD: {
-        answer: {
-            type: String,
-            required: false
-        },
-        correct: {
-            type: Boolean,
-            required: false
-        }
-    },
+        answer: String,
+        correct: Boolean
+    }, 
     funFact: String
 })
 
