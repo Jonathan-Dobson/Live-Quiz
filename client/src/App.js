@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom' 
-import NewPlayer from './NewPlayer'
-import TriviaQuestion from'./TriviaQuestion'
+import NewPlayer from './Player/NewPlayer'
+import SelectCategory from './Player/SelectCategory'
+
 
 const App = () => {
     return(
         <div>
-            <TriviaQuestion />
+           <SelectCategory />
             <Switch>
                 <Route exact path = '/' component = { NewPlayer } />
         
