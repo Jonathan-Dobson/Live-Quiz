@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withQuestion } from '../QuestionProvider'
+import { Link } from 'react-router-dom'
 
 
 class Header extends Component{
@@ -12,7 +13,7 @@ class Header extends Component{
             <div>
                 Header
                 <ul>
-                    <li>links</li>
+                    <Link to = '/selectcategory'>Edit Questions</Link>
                 </ul>
             </div>
 

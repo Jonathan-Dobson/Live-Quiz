@@ -4,31 +4,32 @@ import { withQuestion } from '../QuestionProvider'
 class Quiz extends Component{
     constructor(){
         super()
-    //     this.state = {
-    //             question: 'sample',
-    //             answerA: "answer A Quiz",
-    //             answerB: "answer B Quiz",
-    //             answerC: "answer C Quiz",
-    //             answerD: "answer D Quiz",
-    //             _id: 'fhhhh',
-    //             funFact: 'fjdlkfj'
-    //     }
+        this.state = {
+                question: 'sample',
+                answerA: false,
+                answerB: false,
+                answerC: true,
+                answerD: false,
+                _id: 'fhhhh',
+                funFact: 'fjdlkfj'
+        }
     }
     // questionIndex = 0
     // componentDidMount(){
     //     this.setState({question: this.props})
     // }
+    toggle = (question) => this.setState((prevState)=>({[question]: !prevState[question]}))
     render(){
         let indexToDisplay = 0
         const {question, answerA, answerB, answerC, answerD, _id, funFact } = this.props.questions[indexToDisplay]
         const answerArray = [answerA, answerB, answerC, answerD]
             
 
-        this.props.shuffle(answerArray)
         const randomAnswers = () => {
+            this.props.shuffle(answerArray)
             return (answerArray.map((ans, index ) => {
                 return ( 
-                    <div key = {index}>{`${index + 1}: ${ans}`} </div>
+                    <div onClick = {() => this.toggle(ans)} key = {index}>{`${index + 1}: ${ans}`} </div>
                 )
             }))
         } 

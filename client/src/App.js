@@ -4,7 +4,6 @@ import NewPlayer from './Player/NewPlayer'
 import SelectCategory from './Player/SelectCategory'
 import DisplayQuestion from './Player/DisplayQuestion'
 import Quiz from './Player/Quiz'
-import EditForm from './Player/EditForm'
 import Header from './Player/Header'
 import WaitingRoom from './Player/WaitingRoom'
 import SelectQuiz from './Player/SelectQuiz'
@@ -20,6 +19,7 @@ const App = () => {
                 <Route path = '/waitingroom' component = { WaitingRoom } />
                 <Route path = '/selectquiz' component = { SelectQuiz } />
                 <Route path = '/quiz' component = { Quiz } />
+                <Route path = '/selectcategory' component = { SelectCategory } />
          
            </Switch> 
         </div>
