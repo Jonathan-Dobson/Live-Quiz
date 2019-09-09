@@ -1,15 +1,13 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
+import React from 'react'
 import { withQuestion } from '../QuestionProvider'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-
-class SelectCategory extends Component {
+class SelectQuiz extends Component{
     constructor(){
         super()
-        this.state = {
-            categories: []
-        }
+        this.state = { categories: [] }
     }
 
     componentDidMount(){
@@ -18,11 +16,10 @@ class SelectCategory extends Component {
         })
     }
     
-    
     render(){
         const mappedCategories = this.state.categories.map((cat, index) => {
             return(
-                <Link onClick = {() => this.props.getCategoryQuestions(cat)} key = {index} to = {`/category/${cat}`} category = {cat} >{cat}</Link>
+                <Link onClick = {() => this.props.getCategoryQuestions(cat)} key = {index} to = {`/waitingroom/${cat}`} category = {cat} >{cat}</Link>
             )
         })
         return(
@@ -34,7 +31,11 @@ class SelectCategory extends Component {
                 </div>
             </div>
         )
+       
     }
 }
 
-export default withQuestion( SelectCategory )
+export default withQuestion(SelectQuiz)
+
+
+
