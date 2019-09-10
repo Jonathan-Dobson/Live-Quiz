@@ -9,32 +9,28 @@ class Quiz extends Component{
                 question: 'sample',
                 answer0: false,
                 answer1: false,
-                answer2: true,
+                answer2: false,
                 answer3: false,
                 _id: 'fhhhh',
-                funFact: 'fjdlkfj'
+                funFact: 'fjdlkfj',
+                correctAnswers: []
         }
     }
-    // questionIndex = 0
-    // componentDidMount(){
-    //     this.setState({question: this.props})
-    // }
     
-
     toggle = (answerSelected, index) => {
         let answered = `answer${index}`
         if(this.state.answers.includes(answerSelected)){
-            console.log('included')
-            // const indexOfAnswer = this.state.answers.findIndex(answerSelected)
-            // console.log(indexOfAnswer)
-            // this.setState(prev => { answers: prev.answers.splice(indexOfAnswer, 1)})
-    
+            this.setState(prev => { 
+                let x = prev.answers.indexOf(answerSelected)
+                return({answers: prev.answers.splice(x, 1),
+                    [answered]: !prev[answered]
+                })
+            })
         }else{
             this.setState((prevState)=>({answers: [...prevState.answers, answerSelected],
                                         [answered]: !prevState[answered]
             }))
         }
-        console.log(this.state)
     }
     render(){
         let indexToDisplay = 0
@@ -58,10 +54,10 @@ class Quiz extends Component{
                     <div>{ question }</div>
                     { randomAnswers() }
                     <div>{funFact}</div>
-                    <button onClick = {() => console.log( this.props.questions ) }>Quiz Props</button>
 
 
                 </form>
+                    <button onClick = {() => console.log( this.state ) }>Quiz State</button>
             </div>
         )
     }

@@ -8,6 +8,7 @@ class QuestionProvider extends Component{
         super ()
         this.state = {
             playerName: 'Default Player name',
+            score: 0,
             question: '',
             quizQuestion: [],
             questions: [{
@@ -38,6 +39,14 @@ class QuestionProvider extends Component{
         axios.get('/questions/').then(res => {
             this.setState({quizQuestion: res.data})
         })
+    }
+
+    addToScore = (pointsToAdd) => {
+        return (
+            this.setState(prev => {
+                return({ score: prev.score += pointsToAdd})
+            })
+        )
     }
 
     updateStateWithEditedQuestions = (editedQuestions) => {
@@ -88,6 +97,7 @@ class QuestionProvider extends Component{
                                 shuffle: this.shuffle,
                                 handleChange: this.handleChange,
                                 toggle: this.toggle,
+                                addToScore: this.addToScore,
                                 updateStateWithEditedQuestions: this.updateStateWithEditedQuestions
                                 }}>
                 { this.props.children }
