@@ -7,6 +7,7 @@ import Quiz from './Player/Quiz'
 import Header from './Player/Header'
 import WaitingRoom from './Player/WaitingRoom'
 import SelectQuiz from './Player/SelectQuiz'
+import './App.css'
 
 const App = () => {
     return(

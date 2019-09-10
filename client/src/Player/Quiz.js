@@ -5,11 +5,12 @@ class Quiz extends Component{
     constructor(){
         super()
         this.state = {
+                answers: [],
                 question: 'sample',
-                answerA: false,
-                answerB: false,
-                answerC: true,
-                answerD: false,
+                answer0: false,
+                answer1: false,
+                answer2: true,
+                answer3: false,
                 _id: 'fhhhh',
                 funFact: 'fjdlkfj'
         }
@@ -18,7 +19,23 @@ class Quiz extends Component{
     // componentDidMount(){
     //     this.setState({question: this.props})
     // }
-    toggle = (question) => this.setState((prevState)=>({[question]: !prevState[question]}))
+    
+
+    toggle = (answerSelected, index) => {
+        let answered = `answer${index}`
+        if(this.state.answers.includes(answerSelected)){
+            console.log('included')
+            // const indexOfAnswer = this.state.answers.findIndex(answerSelected)
+            // console.log(indexOfAnswer)
+            // this.setState(prev => { answers: prev.answers.splice(indexOfAnswer, 1)})
+    
+        }else{
+            this.setState((prevState)=>({answers: [...prevState.answers, answerSelected],
+                                        [answered]: !prevState[answered]
+            }))
+        }
+        console.log(this.state)
+    }
     render(){
         let indexToDisplay = 0
         const {question, answerA, answerB, answerC, answerD, _id, funFact } = this.props.questions[indexToDisplay]
@@ -26,10 +43,12 @@ class Quiz extends Component{
             
 
         const randomAnswers = () => {
-            this.props.shuffle(answerArray)
+            // this.props.shuffle(answerArray)
             return (answerArray.map((ans, index ) => {
+                let answer = `answer${index.toString()}`
+                let toggleSelected = this.state[answer]
                 return ( 
-                    <div onClick = {() => this.toggle(ans)} key = {index}>{`${index + 1}: ${ans}`} </div>
+                    <div className = {`selected${toggleSelected}`} onClick = {() => this.toggle(ans, index)} key = {index}>{`${index + 1}: ${ans}`} </div>
                 )
             }))
         } 
