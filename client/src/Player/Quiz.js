@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { withQuestion } from '../QuestionProvider'
+import { Link } from 'react-router-dom'
+
 
 class Quiz extends Component{
     constructor(){
@@ -9,38 +11,85 @@ class Quiz extends Component{
                 question: 'sample',
                 answer0: false,
                 answer1: false,
-                answer2: true,
+                answer2: false,
                 answer3: false,
                 _id: 'fhhhh',
-                funFact: 'fjdlkfj'
-        }
+                funFact: 'fjdlkfj',
+                correctAnswers: [],
+                questionToAsk: {},
+                questionAnswered: false
+        
+            }
     }
-    // questionIndex = 0
-    // componentDidMount(){
-    //     this.setState({question: this.props})
-    // }
     
-
     toggle = (answerSelected, index) => {
         let answered = `answer${index}`
         if(this.state.answers.includes(answerSelected)){
-            console.log('included')
-            // const indexOfAnswer = this.state.answers.findIndex(answerSelected)
-            // console.log(indexOfAnswer)
-            // this.setState(prev => { answers: prev.answers.splice(indexOfAnswer, 1)})
-    
+            this.setState(prev => { 
+                let x = prev.answers.indexOf(answerSelected)
+                return({answers: prev.answers.splice(x, 1),
+                    [answered]: !prev[answered]
+                })
+            })
         }else{
             this.setState((prevState)=>({answers: [...prevState.answers, answerSelected],
                                         [answered]: !prevState[answered]
             }))
         }
-        console.log(this.state)
+    }
+
+    indexToDisplay = 0
+    componentDidMount(){
+        this.setState({questionToAsk: this.props.questions[this.indexToDisplay] })
     }
     render(){
-        let indexToDisplay = 0
-        const {question, answerA, answerB, answerC, answerD, _id, funFact } = this.props.questions[indexToDisplay]
+        const {question, answerA, answerB, answerC, answerD, _id, funFact, correctAnswers } = this.state.questionToAsk
         const answerArray = [answerA, answerB, answerC, answerD]
+        let correctAnswersLength = correctAnswers ? correctAnswers.length : 0
+                
+        const handleSubmit = (e) => {
+            e.preventDefault()
+            let score = 0 
+            let possible = correctAnswersLength
+            const { answers } = this.state
             
+
+            this.setState({questionToAsk: this.props.questions[this.indexToDisplay],
+                            answer0: false,
+                            answer1: false,
+                            answer2: false,
+                            answer3: false,
+                            questionAnswered: true
+            })
+            if(answers.length > 0){
+                    answers.map(answer => {
+                        console.log(correctAnswers, answer,correctAnswers.includes(answer), score)
+                        if(correctAnswers.includes(answer)){
+                             return score += 1 
+                             
+                        }else{
+                            return score -= 0.5
+                        }
+                    })  
+            }
+            this.props.addToScore(score)
+            console.log(score)
+        }
+            
+        const handleNextQuestion = (e) => {
+            e.preventDefault()
+            this.indexToDisplay += 1 
+            return(
+                this.setState({questionToAsk: this.props.questions[this.indexToDisplay],
+                    answer0: false,
+                    answer1: false,
+                    answer2: false,
+                    answer3: false,
+                    questionAnswered: false
+                })
+            )
+        }
+
 
         const randomAnswers = () => {
             // this.props.shuffle(answerArray)
@@ -52,16 +101,35 @@ class Quiz extends Component{
                 )
             }))
         } 
+        const buttonToDisplay = () => {
+            if(this.state.questionAnswered){
+                if(this.props.questions.length === this.indexToDisplay +1){
+                    return (
+                        <Link to = '/results'>
+                            <button className = "submit-button" type="button">
+                                See Results
+                            </button>
+                        </Link>
+                    )
+                } else{
+                    return <button className = "submit-button" onClick = { handleNextQuestion }> Next Question </button>
+                }
+            }else{
+                return <button className = "submit-button" onClick = { handleSubmit }>Submit</button>
+            }
+        }
+
+
         return(
             <div key = {_id}>
-                <form>
+                <div >
                     <div>{ question }</div>
                     { randomAnswers() }
                     <div>{funFact}</div>
-                    <button onClick = {() => console.log( this.props.questions ) }>Quiz Props</button>
 
+                    { buttonToDisplay() }
 
-                </form>
+                </div>
             </div>
         )
     }

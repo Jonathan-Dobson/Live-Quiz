@@ -7,7 +7,9 @@ class QuestionProvider extends Component{
     constructor (){
         super ()
         this.state = {
-            playerName: 'Default Player name',
+            playerName: 'Welcome To The Game',
+            score: 0,
+            indexOfQuestion: 0,
             question: '',
             quizQuestion: [],
             addQuestion: false,
@@ -21,7 +23,7 @@ class QuestionProvider extends Component{
                 funFact: 'funfact',
                 editQuestion: true,
                 _id: 'fjkdsljfdsk',
-                correctAnswers: []
+                correctAnswers: ["answer C", "answer D" ]
             
             }],
             updateQuestion: {
@@ -41,6 +43,16 @@ class QuestionProvider extends Component{
         })
     }
 
+    addToScore = (pointsToAdd) => {
+        return (
+            this.setState(prev => {
+                return({ score: prev.score += pointsToAdd,
+                        indexOfQuestion: (prev.indexOfQuestion +=1)
+                })
+            })
+        )
+    }
+
     updateStateWithEditedQuestions = (editedQuestions) => {
         
         return(
@@ -53,7 +65,7 @@ class QuestionProvider extends Component{
     handleChange = (e) =>{
         this.setState({[e.target.name]: e.target.value})
     }
-
+    namePlayer = (name) => this.setState({playerName: name})
 
     toggle = (index, whatToToggle) => {
         
@@ -94,10 +106,12 @@ class QuestionProvider extends Component{
                                 shuffle: this.shuffle,
                                 handleChange: this.handleChange,
                                 toggle: this.toggle,
-                                updateStateWithEditedQuestions: this.updateStateWithEditedQuestions,
                                 showAddQuestion: this.showAddQuestion,
-                                hideAddQuestion: this.hideAddQuestion
-                                }}>
+                                hideAddQuestion: this.hideAddQuestion,
+                                addToScore: this.addToScore,
+                                namePlayer: this.namePlayer,
+                                updateStateWithEditedQuestions: this.updateStateWithEditedQuestions
+                   }}>
                 { this.props.children }
             </Provider>
         )
