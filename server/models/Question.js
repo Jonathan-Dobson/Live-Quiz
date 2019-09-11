@@ -5,22 +5,21 @@ const questionSchema = new Schema({
     category: String,
     question: String,
     answerA: {
-        answer: String,
-        correct: Boolean
-    },    
+        type: String,
+        required: true
+    },
     answerB: {
-        answer: String,
-        correct: Boolean
-    }, 
-    answerC: {
-        answer: String,
-        correct: Boolean
-    }, 
-    answerD: {
-        answer: String,
-        correct: Boolean
-    }, 
-    funFact: String
+        type: String,
+        required: true
+    },
+    answerC: String, 
+    answerD: String,
+    correctAnswers: [String],
+    funFact: String,
+    editQuestion: {
+        type: Boolean,
+        default: false
+    }
 })
 
 module.exports = mongoose.model('Question',questionSchema)
