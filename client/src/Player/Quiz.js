@@ -93,7 +93,7 @@ class Quiz extends Component{
                 let answer = `answer${index.toString()}`
                 let toggleSelected = this.state[answer]
                 return ( 
-                    <div className = {`selected${toggleSelected}`} onClick = {() => this.toggle(ans, index)} key = {index}>{`${index + 1}: ${ans}`} </div>
+                    <div className = {`selected${toggleSelected} answer`} onClick = {() => this.toggle(ans, index)} key = {index}>{`${index + 1}: ${ans}`} </div>
                 )
             }))
         } 
@@ -117,9 +117,9 @@ class Quiz extends Component{
 
 
         return(
-            <div key = {_id}>
-                <div >
-                    <div>{ question }</div>
+            <div key = {_id} className = "question-container">
+                <div className = "question-card" >
+                    <div className = 'question'>{ question }</div>
                     { randomAnswers() }
                     <div>{funFact}</div>
                     <Timer time = {time} />

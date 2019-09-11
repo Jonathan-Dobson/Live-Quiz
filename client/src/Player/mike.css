@@ -19,4 +19,26 @@
     
 }
 
+.question-container{
+    width: 80%;
+    margin: auto;
+}
 
+.question-card{
+    text-align: center
+}
+.question{
+    font-size: 20pt;
+    line-height: 30pt;
+    padding: 5pt;
+    height: 100pt;
+}
+.answer{
+    padding: 5pt
+}
+.selectedtrue {
+    background: green;
+}
+.selectedfalse {
+    background: red;
+}

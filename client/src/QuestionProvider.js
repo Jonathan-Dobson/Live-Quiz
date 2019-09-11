@@ -15,7 +15,7 @@ class QuestionProvider extends Component{
             quizQuestion: [],
             addQuestion: false,
             questions: [{
-                question: 'Question',
+                question: 'Question what if the wuestion is way to big for the sinlge line',
                 answerA: "answer A",
                 answerB: "answer B",
                 answerC: "answer C",

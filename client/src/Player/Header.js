@@ -13,7 +13,7 @@ class Header extends Component{
     render(){
 
         const displayScore = () => {
-            if(this.props.playerName !== this.props.quizStarted ){
+            if(this.props.quizStarted ){
                 return<div>Enter Name to Begin Quiz</div>
             }else{
                 return (
