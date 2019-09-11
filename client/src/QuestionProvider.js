@@ -100,9 +100,11 @@ class QuestionProvider extends Component{
                                 shuffle: this.shuffle,
                                 handleChange: this.handleChange,
                                 toggle: this.toggle,
+                                showAddQuestion: this.showAddQuestion,
+                                hideAddQuestion: this.hideAddQuestion,
                                 addToScore: this.addToScore,
                                 namePlayer: this.namePlayer,
-                                updateStateWithEditedQuestions: this.updateStateWithEditedQuestions,
+                                updateStateWithEditedQuestions: this.updateStateWithEditedQuestions
                                 
                                 }}>
                 { this.props.children }
