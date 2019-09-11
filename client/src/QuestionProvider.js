@@ -8,6 +8,7 @@ class QuestionProvider extends Component{
         super ()
         this.state = {
             playerName: 'Welcome To The Game',
+            quizStarted: false,
             score: 0,
             indexOfQuestion: 0,
             question: '',
@@ -41,6 +42,12 @@ class QuestionProvider extends Component{
         axios.get('/questions/').then(res => {
             this.setState({quizQuestion: res.data})
         })
+    }
+    beginQuiz = () => {
+        this.setState({ quizStarted: true })
+    }
+    endQuiz = () => {
+        this.setState({ quizStarted: false })
     }
 
     addToScore = (pointsToAdd) => {
@@ -110,7 +117,9 @@ class QuestionProvider extends Component{
                                 hideAddQuestion: this.hideAddQuestion,
                                 addToScore: this.addToScore,
                                 namePlayer: this.namePlayer,
-                                updateStateWithEditedQuestions: this.updateStateWithEditedQuestions
+                                updateStateWithEditedQuestions: this.updateStateWithEditedQuestions,
+                                beginQuiz: this.beginQuiz,
+                                endQuiz: this.endQuiz
                    }}>
                 { this.props.children }
             </Provider>

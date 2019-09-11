@@ -12,18 +12,24 @@ class Header extends Component{
     render(){
 
         const displayScore = () => {
-            if(this.props.playerName === "Welcome To The Game" && "Enter Your Name to Begin" ){
+            if(this.props.playerName !== this.props.quizStarted ){
                 return<div>Enter Name to Begin Quiz</div>
-            }
-            return (
-                <div> 
-                    <div>
-                        {`${this.props.questions.length - this.props.indexOfQuestion} Questions Remaining`} 
+            }else{
+                return (
+                    <div> 
+                        <div>
+                            {`${this.props.questions.length - this.props.indexOfQuestion} Questions Remaining`} 
+                        </div>
+                        <div>{`Score:${this.props.score}`}</div>
                     </div>
-                    <div>{`Score:${this.props.score}`}</div>
-                </div>
-            )
+                )
+            }
         }
+        const handleLink = () => {
+            this.props.namePlayer("Welcome To The Game")
+            this.props.endQuiz()
+        }
+
 
         return(
             <div className = "header-container" >
@@ -34,8 +40,8 @@ class Header extends Component{
 
                 </div>
                 <ul className = "link-container" >
-                    <Link className = "links" to = '/' onClick = {()=>this.props.namePlayer("Welcome To The Game")} >Home</Link>
-                    <Link className = "links" to = '/selectcategory'>Edit Questions</Link>
+                    <Link className = "links" to = '/' onClick = {()=>handleLink} >Home</Link>
+                    <Link className = "links" to = '/selectcategory'  onClick = {()=>handleLink} >Edit Questions</Link>
                 </ul>
             </div>
 
