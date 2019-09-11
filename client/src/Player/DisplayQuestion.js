@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withQuestion } from '../QuestionProvider'
 import EditForm from './EditForm'
+import axios from 'axios'
 
 class DisplayQuestion extends Component{
     constructor(){
@@ -27,6 +28,10 @@ class DisplayQuestion extends Component{
                 }))
             } 
 
+            const deleteQuestionFromDB = (id) => {
+                axios.delete(`/questions/${id}`).then(res=>{
+                    console.log(res.data.message)})
+            }
 
 
             if( editQuestion ){    
@@ -43,6 +48,7 @@ class DisplayQuestion extends Component{
                         <div>{funFact}</div>
                         <button onClick = {() => this.props.toggle(index, editQuestion)} >Edit Question</button>
                         <button onClick = {()=> console.log(editQuestion)}>Display Question quest</button>
+                        <button onClick = {()=> {deleteQuestionFromDB(_id)}}>Delete</button>
                     </div>
                 )
             }
@@ -50,7 +56,11 @@ class DisplayQuestion extends Component{
     
 
         return(
+            <>
             <div>{mappedQuestion}</div>
+            <button onClick = {()=>this.props.showAddQuestion()} >Add Question</button>     
+            {this.props.addQuestion && <EditForm />}
+            </>
         )
     }
        

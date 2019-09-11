@@ -10,6 +10,7 @@ class QuestionProvider extends Component{
             playerName: 'Default Player name',
             question: '',
             quizQuestion: [],
+            addQuestion: false,
             questions: [{
                 question: 'Question',
                 answerA: "answer A",
@@ -79,7 +80,12 @@ class QuestionProvider extends Component{
             this.setState({questions: res.data })
         })
     }
-
+    showAddQuestion = () => {
+        this.setState({addQuestion: true})
+    }
+    hideAddQuestion = () => {
+        this.setState({addQuestion: false})
+    }
 
     render (){
         return(
@@ -88,7 +94,9 @@ class QuestionProvider extends Component{
                                 shuffle: this.shuffle,
                                 handleChange: this.handleChange,
                                 toggle: this.toggle,
-                                updateStateWithEditedQuestions: this.updateStateWithEditedQuestions
+                                updateStateWithEditedQuestions: this.updateStateWithEditedQuestions,
+                                showAddQuestion: this.showAddQuestion,
+                                hideAddQuestion: this.hideAddQuestion
                                 }}>
                 { this.props.children }
             </Provider>
