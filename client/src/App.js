@@ -8,6 +8,7 @@ import Header from './Player/Header'
 import WaitingRoom from './Player/WaitingRoom'
 import SelectQuiz from './Player/SelectQuiz'
 import './App.css'
+import Results from './Player/Results.js'
 
 const App = () => {
     return(
@@ -21,6 +22,7 @@ const App = () => {
                 <Route path = '/selectquiz' component = { SelectQuiz } />
                 <Route path = '/quiz' component = { Quiz } />
                 <Route path = '/selectcategory' component = { SelectCategory } />
+                <Route path = '/results' component = { Results } />
          
            </Switch> 
         </div>

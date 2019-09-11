@@ -11,7 +11,9 @@ class Header extends Component{
     render(){
         return(
             <div>
-                Header
+                {this.props.playerName}
+                <div>{`Score:${this.props.score}`}</div>
+                <div> {`${this.props.questions.length - this.props.indexOfQuestion} Questions Remaining`} </div>
                 <ul>
                     <Link to = '/selectcategory'>Edit Questions</Link>
                 </ul>

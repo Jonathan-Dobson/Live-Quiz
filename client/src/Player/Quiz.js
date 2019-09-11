@@ -53,8 +53,7 @@ class Quiz extends Component{
             let possible = correctAnswersLength
             const { answers } = this.state
             
-            
-            
+
             this.setState({questionToAsk: this.props.questions[this.indexToDisplay],
                             answer0: false,
                             answer1: false,
@@ -66,13 +65,15 @@ class Quiz extends Component{
                     answers.map(answer => {
                         console.log(correctAnswers, answer,correctAnswers.includes(answer), score)
                         if(correctAnswers.includes(answer)){
-                             score += 1 
+                             return score += 1 
+                             
                         }else{
-                        }return score
+                            return score -= 0.5
+                        }
                     })  
             }
             this.props.addToScore(score)
-            console.log(possible)
+            console.log(score)
         }
             
         const handleNextQuestion = (e) => {
@@ -110,8 +111,9 @@ class Quiz extends Component{
                             </button>
                         </Link>
                     )
+                } else{
+                    return <button className = "submit-button" onClick = { handleNextQuestion }> Next Question </button>
                 }
-                return <button className = "submit-button" onClick = { handleNextQuestion }> Next Question </button>
             }else{
                 return <button className = "submit-button" onClick = { handleSubmit }>Submit</button>
             }
