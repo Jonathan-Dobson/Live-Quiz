@@ -15,7 +15,7 @@ class QuestionProvider extends Component{
             quizQuestion: [],
             addQuestion: false,
             questions: [{
-                question: 'Question',
+                question: 'Question what if the wuestion is way to big for the sinlge line',
                 answerA: "answer A",
                 answerB: "answer B",
                 answerC: "answer C",
@@ -24,7 +24,8 @@ class QuestionProvider extends Component{
                 funFact: 'funfact',
                 editQuestion: true,
                 _id: 'fjkdsljfdsk',
-                correctAnswers: ["answer C", "answer D" ]
+                correctAnswers: ["answer C", "answer D" ],
+                time: 10
             
             }],
             updateQuestion: {

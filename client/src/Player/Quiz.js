@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withQuestion } from '../QuestionProvider'
 import { Link } from 'react-router-dom'
+import Timer from './Timer'
 
 
 class Quiz extends Component{
@@ -17,7 +18,8 @@ class Quiz extends Component{
                 funFact: 'fjdlkfj',
                 correctAnswers: [],
                 questionToAsk: {},
-                questionAnswered: false
+                questionAnswered: false,
+                
         
             }
     }
@@ -43,7 +45,7 @@ class Quiz extends Component{
         this.setState({questionToAsk: this.props.questions[this.indexToDisplay] })
     }
     render(){
-        const {question, answerA, answerB, answerC, answerD, _id, funFact, correctAnswers } = this.state.questionToAsk
+        const {question, answerA, answerB, answerC, answerD, _id, funFact, correctAnswers, time } = this.state.questionToAsk
         const answerArray = [answerA, answerB, answerC, answerD]
         let correctAnswersLength = correctAnswers ? correctAnswers.length : 0
                 
@@ -59,7 +61,6 @@ class Quiz extends Component{
             })
             if(answers.length > 0){
                     answers.map(answer => {
-                        console.log(correctAnswers, answer,correctAnswers.includes(answer), score)
                         if(correctAnswers.includes(answer)){
                              return score += 1 
                              
@@ -69,7 +70,6 @@ class Quiz extends Component{
                     })  
             }
             this.props.addToScore(score)
-            console.log(score)
         }
             
         const handleNextQuestion = (e) => {
@@ -93,7 +93,7 @@ class Quiz extends Component{
                 let answer = `answer${index.toString()}`
                 let toggleSelected = this.state[answer]
                 return ( 
-                    <div className = {`selected${toggleSelected}`} onClick = {() => this.toggle(ans, index)} key = {index}>{`${index + 1}: ${ans}`} </div>
+                    <div className = {`selected${toggleSelected} answer`} onClick = {() => this.toggle(ans, index)} key = {index}>{`${index + 1}: ${ans}`} </div>
                 )
             }))
         } 
@@ -117,11 +117,12 @@ class Quiz extends Component{
 
 
         return(
-            <div key = {_id}>
-                <div >
-                    <div>{ question }</div>
+            <div key = {_id} className = "question-container">
+                <div className = "question-card" >
+                    <div className = 'question'>{ question }</div>
                     { randomAnswers() }
                     <div>{funFact}</div>
+                    <Timer time = {time} />
 
                     { buttonToDisplay() }
 
