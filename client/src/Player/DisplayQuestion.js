@@ -58,8 +58,9 @@ class DisplayQuestion extends Component{
         return(
             <>
             <div>{mappedQuestion}</div>
+            {this.props.addQuestion ? <EditForm /> : 
             <button onClick = {()=>this.props.showAddQuestion()} >Add Question</button>     
-            {this.props.addQuestion && <EditForm />}
+            }
             </>
         )
     }
