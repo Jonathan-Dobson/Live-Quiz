@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import './mike.css'
 
 
+
 class Header extends Component{
     constructor(){
         super()
@@ -21,6 +22,7 @@ class Header extends Component{
                             {`${this.props.questions.length - this.props.indexOfQuestion} Questions Remaining`} 
                         </div>
                         <div>{`Score:${this.props.score}`}</div>
+                        
                     </div>
                 )
             }

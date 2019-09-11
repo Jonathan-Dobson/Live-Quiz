@@ -24,7 +24,8 @@ class QuestionProvider extends Component{
                 funFact: 'funfact',
                 editQuestion: true,
                 _id: 'fjkdsljfdsk',
-                correctAnswers: ["answer C", "answer D" ]
+                correctAnswers: ["answer C", "answer D" ],
+                time: 10
             
             }],
             updateQuestion: {
