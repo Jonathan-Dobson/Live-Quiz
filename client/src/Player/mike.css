@@ -20,25 +20,63 @@
 }
 
 .question-container{
-    width: 80%;
+    width: 101%;
     margin: auto;
 }
 
 .question-card{
-    text-align: center
+    text-align: center; 
+    position: relative;
 }
 .question{
     font-size: 20pt;
     line-height: 30pt;
     padding: 5pt;
+    width: 60%;
     height: 100pt;
 }
 .answer{
-    padding: 5pt
+    padding: 5pt;
+    border-radius: 5pt;
+    border-style: solid;
+    width: 80%;
+    margin: auto;
+    margin-top: 6pt;
+    height: auto;
+    min-height: 30pt;
+}
+.answer:hover{
+    height: 40pt;
+    color: white;
+    transition: height 0.5s
 }
 .selectedtrue {
     background: green;
 }
 .selectedfalse {
     background: red;
+}
+.fun-fact{
+    position: absolute;
+    width: 100%;
+    height: 220pt;
+    background: green;
+    bottom: -220pt;
+    transition: 0.3s;
+}
+.answered-true{
+    -webkit-transform: translatey(-100%); 
+    -moz-transform: translatey(-100%); 
+    -ms-transform: translatey(-100%); 
+    -o-transform: translatey(-100%); 
+    transform: translatey(-100%); 
+    transition: 0.3s;
+}
+.button-container{
+        background: mintcream;
+        position: relative;
+        z-index: 99;
+        margin-left: -1%;
+        width: 102%;
+        height: 700pt;
 }
