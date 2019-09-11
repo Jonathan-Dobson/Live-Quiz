@@ -55,10 +55,6 @@ class Quiz extends Component{
             
 
             this.setState({questionToAsk: this.props.questions[this.indexToDisplay],
-                            answer0: false,
-                            answer1: false,
-                            answer2: false,
-                            answer3: false,
                             questionAnswered: true
             })
             if(answers.length > 0){

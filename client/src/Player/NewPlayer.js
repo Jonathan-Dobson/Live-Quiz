@@ -12,10 +12,13 @@ class NewPlayer extends Component {
         const handleChange = (e) =>{
             this.setState({[e.target.name]: e.target.value})
         }
+        const handleSubmit = (e) =>{
+            e.preventDefault()
+        }
         
         return(
             <div>Welcome!
-                <form>
+                <form onSubmit = {handleSubmit} >
                     Enter Your Name<input type="text" placeholder = 'Enter Name' value = {this.state.playerName} name ='playerName' onChange = {handleChange} />
                     <Link to="/selectquiz">
                         <button onClick = {()=>this.props.namePlayer(this.state.playerName)} type="button">
