@@ -1,0 +1,20 @@
+.header-container{
+    width: 102%;
+    background: rgb(180, 180, 199);
+    margin-top: -6pt;
+    margin-left: -6pt;
+    height: 160pt;
+    position: relative;
+}
+.link-container{
+    display: flex;
+    position: absolute;
+    bottom: 6pt;
+    width: 30%;
+
+}
+.links{
+    width: 100%;
+    justify-content: space-between;
+    
+}
