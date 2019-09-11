@@ -6,11 +6,11 @@ const questionSchema = new Schema({
     question: String,
     answerA: {
         type: String,
-        required: true
+        // required: true
     },
     answerB: {
         type: String,
-        required: true
+        // required: true
     },
     answerC: String, 
     answerD: String,
