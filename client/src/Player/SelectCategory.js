@@ -21,10 +21,10 @@ class SelectCategory extends Component {
 
     handleAddCategory = (e) => {
         e.preventDefault()
+        e.target.newCategory.value &&
         axios
             .post(`/questions`, {category: e.target.newCategory.value, answerA: "", answerB: ""})
             .then(res => {
-                console.log(res.data)
                 this.setState(prev=>({categories: [...prev.categories,res.data.category]}))
             })
     }
