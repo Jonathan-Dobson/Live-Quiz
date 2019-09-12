@@ -28,7 +28,7 @@ class Timer extends Component{
     
     render(){
 
-        if(this.state.time < 0) clearInterval(this.countDown)
+        if(this.state.time === 0) clearInterval(this.countDown)
 
 
         const runSubmit = () =>{
@@ -44,7 +44,7 @@ class Timer extends Component{
         const styleEmpty = {
             width: 50,
             height: 50,
-            background: "blue",
+            background: "grey",
             position: "absolute",
             bottom: 0,
             right: 0
@@ -53,37 +53,29 @@ class Timer extends Component{
             width: 50,
             height: `${ 100 - (100 * (this.state.time / this.props.time))}%`,
             maxHeight: "100%",
-            background: "red",
+            background: "lightGrey",
             position: "absolute",
             bottom: 0,
             right: 0
         }
-        if(this.state.time > 0){
+    
             
-            return(
+        return(
+            <div className = "timer-container" >
                 <div className = "timer-container" >
-                    <div style = {{position: "relative"}} >{this.state.time}
-                        <div style = {styleEmpty}>
-                            <div style = {styleFull}></div>
-                        </div>
-                            
-                    </div>
-    
+
                 </div>
-            )
-        } else{
-            return(
-                <div className = "timer-container" >
-                    <div style = {{position: "relative"}} >Time Remaining: 0
-                        <div style = {styleEmpty}>
-                            <div style = {styleFull}></div>
-                        </div>
-                            
+                <div style = {{position: "relative"}} >Time Remaining: {this.state.time}
+                    <div style = {styleEmpty}>
+                        <div style = {styleFull}></div>
                     </div>
-    
+                        
                 </div>
-            )
-        }
+
+            </div>
+        )
+        
+        
     }
 }
 

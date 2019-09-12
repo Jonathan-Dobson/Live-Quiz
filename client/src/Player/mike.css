@@ -8,7 +8,7 @@
 /* Header */
 
 .header-container{
-    width: 100%;
+    width: 105%;
     background: rgb(180, 180, 199);
     margin-top: -6pt;
     margin-left: -6pt;
@@ -27,6 +27,11 @@
     justify-content: space-between;
     text-decoration: none;
     
+}
+
+.name{
+    font-size: 15pt;
+    text-align: center; 
 }
 
 /* Quiz */
@@ -94,18 +99,6 @@
         text-align: center
 }
 
-/* New Player */
-
-.enter-name{
-    width: 90%; 
-    text-align: center;
-    font-size: 20pt;
-    padding: 10pt;
-    line-height: 30pt
-
-
-
-
 
 /* New Player */
 
@@ -130,7 +123,7 @@ input{
 .button{
     border-style: solid;
     border-color: black;
-
+    height: 20pt;
     margin-top: 10pt;
     border-radius: 3pt;
     text-align: center;
@@ -164,7 +157,7 @@ input{
 
 .waiting-room{
 
-    width:90%;
+    width:100%;
     text-align: center;
     height: 16pt;
 
@@ -181,6 +174,8 @@ input{
 
 .timer-container{
     position: absolute;
-    top: 0
+    bottom: 0;
+    right: 0;
+    height: 100%;
 }
 

@@ -132,13 +132,11 @@ class Quiz extends Component{
                     { randomAnswers() }
                     <div onClick = { handleNextQuestion } className = {`answered-${this.state.questionAnswered} fun-fact`} >{funFact}</div>
 
-                    <Timer time = {time} handleSubmit = {handleSubmit} />
-
-
                 </div>
                 <div className = 'button-container'>
                     { buttonToDisplay() }
 
+                    <Timer time = {time} handleSubmit = {handleSubmit}  />
                 </div>
             </div>
         )
