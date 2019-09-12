@@ -22,6 +22,7 @@ class SelectCategory extends Component {
     handleAddCategory = (e) => {
         e.preventDefault()
         e.target.newCategory.value.length>=3 &&
+        this.state.categories.some(cat=>cat===e.target.newCategory.value)===false &&
         axios
             .post(`/questions`, {category: encodeURI(e.target.newCategory.value), answerA: "", answerB: ""})
             .then(res => {
