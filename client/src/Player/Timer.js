@@ -24,10 +24,12 @@ class Timer extends Component{
     }
     
    
-
-
+    
+    
     render(){
+
         if(this.state.time < 0) clearInterval(this.countDown)
+
 
         const runSubmit = () =>{
             if(this.state.timedOut) {
@@ -39,8 +41,6 @@ class Timer extends Component{
         }
         if(this.state.time === 0) runSubmit() 
 
-
-           
         const styleEmpty = {
             width: 50,
             height: 50,
@@ -59,6 +59,7 @@ class Timer extends Component{
             right: 0
         }
         if(this.state.time > 0){
+            
             return(
                 <div className = "timer-container" >
                     <div style = {{position: "relative"}} >{this.state.time}

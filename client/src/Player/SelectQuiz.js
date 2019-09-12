@@ -22,6 +22,7 @@ class SelectQuiz extends Component{
                 <div className= "category">
                     <Link className = "category-link" onClick = {() => this.props.getCategoryQuestions(cat)} key = {index} to = {`/waitingroom/${cat}`} category = {cat} >{cat}</Link>
 
+
                 </div>    
             )
         })
@@ -31,6 +32,7 @@ class SelectQuiz extends Component{
                 <div className = "category-wrapper">
                 Choose a Category: <br></br>
                 {mappedCategories}
+
                 </div>
             </div>
         )
