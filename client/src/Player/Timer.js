@@ -27,7 +27,7 @@ class Timer extends Component{
 
 
     render(){
-
+        if(this.state.time < 0) clearInterval(this.countDown)
            
         const styleEmpty = {
             width: 50,
@@ -48,9 +48,9 @@ class Timer extends Component{
         }
         if(this.state.time > 0){
             return(
-                <div>
+                <div className = "timer-container" >
                     <div style = {{position: "relative"}} >{this.state.time}
-                        <div style = {styleEmpty}>Timer
+                        <div style = {styleEmpty}>
                             <div style = {styleFull}></div>
                         </div>
                             
@@ -60,9 +60,9 @@ class Timer extends Component{
             )
         } else{
             return(
-                <div>
+                <div className = "timer-container" >
                     <div style = {{position: "relative"}} >Time Remaining: 0
-                        <div style = {styleEmpty}>Timer
+                        <div style = {styleEmpty}>
                             <div style = {styleFull}></div>
                         </div>
                             

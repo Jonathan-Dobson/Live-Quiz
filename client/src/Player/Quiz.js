@@ -50,6 +50,7 @@ class Quiz extends Component{
         let correctAnswersLength = correctAnswers ? correctAnswers.length : 0
                 
         const handleSubmit = (e) => {
+
             e.preventDefault()
             let score = 0 
             const { answers } = this.state
@@ -71,7 +72,7 @@ class Quiz extends Component{
             this.props.addToScore(score)
         }
             
-        const handleNextQuestion = (e) => {
+        const handleNextQuestion = (e = {} || e) => {
             e.preventDefault()
             if(this.props.questions.length > this.indexToDisplay +1){
                 this.indexToDisplay += 1
@@ -103,16 +104,16 @@ class Quiz extends Component{
                 if(this.props.questions.length === this.indexToDisplay +1){
                     return (
                         <Link to = '/results'>
-                            <button className = "submit-button" type="button">
+                            <button className = "submit-button button" type="button">
                                 See Results
                             </button>
                         </Link>
                     )
                 } else{
-                    return <button className = "submit-button" onClick = { handleNextQuestion }> Next Question </button>
+                    return <button className = "submit-button button" onClick = { handleNextQuestion }> Next Question </button>
                 }
             }else{
-                return <button className = "submit-button" onClick = { handleSubmit }>Submit</button>
+                return <button className = "submit-button button" onClick = { handleSubmit }>Submit</button>
             }
         }
         if(this.state.time === 0){

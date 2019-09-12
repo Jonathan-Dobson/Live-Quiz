@@ -19,14 +19,14 @@ class SelectQuiz extends Component{
     render(){
         const mappedCategories = this.state.categories.map((cat, index) => {
             return(
-                <Link onClick = {() => this.props.getCategoryQuestions(cat)} key = {index} to = {`/waitingroom/${cat}`} category = {cat} >{cat}</Link>
+                <Link className = "category" onClick = {() => this.props.getCategoryQuestions(cat)} key = {index} to = {`/waitingroom/${cat}`} category = {cat} >{cat}</Link>
             )
         })
         return(
-            <div>
-                <button onClick = {() => console.log(this.props)}>SelectCategory Props</button>
+            <div className = "category-wrapper" >
+
                 <div>
-                Choose a Category:
+                Choose a Category: <br></br>
                 {mappedCategories}
                 </div>
             </div>
