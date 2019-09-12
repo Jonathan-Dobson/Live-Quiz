@@ -19,10 +19,14 @@ class NewPlayer extends Component {
         return(
             <div className = "enter-name" >Welcome!
                 <form onSubmit = {handleSubmit} >
-                    Enter Your Name<br></br><input type="text" placeholder = 'Enter Name' value = {this.state.playerName} name ='playerName' onChange = {handleChange} /><br></br>
+
+                    Enter Your Name<br></br>
+                    <input type="text" placeholder = 'Enter Name' value = {this.state.playerName}  name ='playerName' onChange = {handleChange} />
+                    <br></br>
                     <Link to="/selectquiz">
                         <button className = "button" onClick = {()=>this.props.namePlayer(this.state.playerName)} type="button">
-                            Enter Game
+                            Enter
+
                         </button>
                     </Link>
                 </form>
