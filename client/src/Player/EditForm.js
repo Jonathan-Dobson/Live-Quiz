@@ -103,9 +103,8 @@ class EditFrom extends Component {
                         onChange
                         ={this.handleChange}/>
                     <input
-                        type="text"
+                        type="hidden"
                         name='category'
-                        placeholder='Category'
                         value={category}
                         onChange={this.handleChange}/>
 
