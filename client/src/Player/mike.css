@@ -1,40 +1,66 @@
+/* App */
+
+
+.app-wrapper{
+    width: 100%
+}
+
+/* Header */
+
 .header-container{
-    width: 102%;
+    width: 100%;
     background: rgb(180, 180, 199);
     margin-top: -6pt;
     margin-left: -6pt;
-    height: 160pt;
+    height: 90pt;
     position: relative;
 }
 .link-container{
     display: flex;
     position: absolute;
-    bottom: 6pt;
-    width: 30%;
+    bottom: -1pt;
+    width: 80%;
 
 }
 .links{
     width: 100%;
     justify-content: space-between;
+    text-decoration: none;
     
 }
 
+/* Quiz */
+
 .question-container{
-    width: 80%;
+    width: 101%;
     margin: auto;
 }
 
 .question-card{
-    text-align: center
+    text-align: center; 
+    position: relative;
 }
 .question{
-    font-size: 20pt;
+    font-size: 18pt;
     line-height: 30pt;
     padding: 5pt;
-    height: 100pt;
+    width: 80%;
+    height: 80pt;
+    text-align: center;
 }
 .answer{
-    padding: 5pt
+    padding: 5pt;
+    border-radius: 5pt;
+    border-style: solid;
+    width: 80%;
+    margin-top: 6pt;
+    height: auto;
+    min-height: 20pt;
+}
+.answer:hover{
+    height: 40pt;
+    color: white;
+    transition: height 0.5s
 }
 .selectedtrue {
     background: green;
@@ -42,3 +68,119 @@
 .selectedfalse {
     background: red;
 }
+.fun-fact{
+    position: absolute;
+    width: 100%;
+    height: 220pt;
+    background: green;
+    bottom: -220pt;
+    transition: 0.3s;
+}
+.answered-true{
+    -webkit-transform: translatey(-100%); 
+    -moz-transform: translatey(-100%); 
+    -ms-transform: translatey(-100%); 
+    -o-transform: translatey(-100%); 
+    transform: translatey(-100%); 
+    transition: 0.3s;
+}
+.button-container{
+        background: mintcream;
+        position: relative;
+        z-index: 99;
+        margin-left: -1%;
+        width: 102%;
+        height: 300pt;
+        text-align: center
+}
+
+/* New Player */
+
+.enter-name{
+    width: 90%; 
+    text-align: center;
+    font-size: 20pt;
+    padding: 10pt;
+    line-height: 30pt
+
+
+
+
+
+/* New Player */
+
+.enter-name{
+    width: 100%; 
+    text-align: center;
+    font-size: 20pt;
+    padding: 10pt;
+    line-height: 30pt
+
+}
+
+input{
+    height: 100%;
+    padding: 3px 5px;
+    line-height: 16px;
+    margin-right: 10pt;
+    margin-left: 10pt;
+    border-style: solid
+}
+
+.button{
+    border-style: solid;
+    border-color: black;
+
+    margin-top: 10pt;
+    border-radius: 3pt;
+    text-align: center;
+    margin-left: -16pt
+
+}
+
+/* SelectQuiz */
+
+.category-wrapper{
+
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 18pt;
+    margin-top: 4pt;
+}
+
+.category{
+    display: block;
+    text-align: center;
+    height: 30pt;
+    text-decoration: none;
+    margin-top: 4pt
+}
+
+/* Waiting Room */
+
+.waiting-room{
+
+    width:90%;
+    text-align: center;
+    height: 16pt;
+
+   
+    margin-top: 20pt;
+    font-size: 14pt
+}
+.waiting-room-button{
+    margin-top: 10pt 
+}
+
+
+/* timer */
+
+.timer-container{
+    position: absolute;
+    top: 0
+}
+

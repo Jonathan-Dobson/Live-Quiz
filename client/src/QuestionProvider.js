@@ -48,7 +48,12 @@ class QuestionProvider extends Component{
         this.setState({ quizStarted: true })
     }
     endQuiz = () => {
-        this.setState({ quizStarted: false })
+        this.setState({ quizStarted: false,
+
+                        score: 0,
+                        playerName: ''            
+        })
+
     }
 
     addToScore = (pointsToAdd) => {
