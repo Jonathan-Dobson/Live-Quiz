@@ -9,9 +9,10 @@ class WaitingRoom extends Component {
 
     render(){
         return(
-            <div>This is the WaitingRoom
-                <Link to="/quiz">
-                    <button type="button">
+            <div className = "waiting-room" >Wait for Other Players, or Begin Quiz
+                <Link to="/quiz" className = "waiting-room-button" >
+                <br></br>
+                    <button type="button" className = "button" >
                         Begin Quiz!
                     </button>
                 </Link>

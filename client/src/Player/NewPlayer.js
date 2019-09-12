@@ -17,12 +17,12 @@ class NewPlayer extends Component {
         }
         
         return(
-            <div>Welcome!
+            <div className = "enter-name" >Welcome!
                 <form onSubmit = {handleSubmit} >
-                    Enter Your Name<input type="text" placeholder = 'Enter Name' value = {this.state.playerName} name ='playerName' onChange = {handleChange} />
+                    Enter Your Name<br></br><input type="text" placeholder = 'Enter Name' value = {this.state.playerName} name ='playerName' onChange = {handleChange} /><br></br>
                     <Link to="/selectquiz">
-                        <button onClick = {()=>this.props.namePlayer(this.state.playerName)} type="button">
-                            Click Me!
+                        <button className = "button" onClick = {()=>this.props.namePlayer(this.state.playerName)} type="button">
+                            Enter Game
                         </button>
                     </Link>
                 </form>

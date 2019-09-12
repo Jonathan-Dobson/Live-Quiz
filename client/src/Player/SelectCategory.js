@@ -35,7 +35,7 @@ class SelectCategory extends Component {
             .categories
             .map((cat, index) => {
                 return (
-                    <li>
+                    <li key = {cat + index.toString()}>
 
                         <Link
                             onClick=
@@ -48,7 +48,6 @@ class SelectCategory extends Component {
             })
         return (
             <div>
-                <button onClick= {() => console.log(this.props)}>SelectCategory Props</button>
                 <form onSubmit={this.handleAddCategory}>
                     <input type="text" name="newCategory" placeholder="Category Name"/>
                     <button>Add New Category</button>
