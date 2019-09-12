@@ -52,7 +52,6 @@ class Quiz extends Component{
         const handleSubmit = (e) => {
             e.preventDefault()
             let score = 0 
-            let possible = correctAnswersLength
             const { answers } = this.state
             
 
@@ -121,9 +120,11 @@ class Quiz extends Component{
                 <div className = "question-card" >
                     <div className = 'question'>{ question }</div>
                     { randomAnswers() }
-                    <div>{funFact}</div>
+                    <div className = {`answered-${this.state.questionAnswered} fun-fact`} >{funFact}</div>
                     <Timer time = {time} />
 
+                </div>
+                <div className = 'button-container'>
                     { buttonToDisplay() }
 
                 </div>
