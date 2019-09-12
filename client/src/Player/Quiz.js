@@ -51,29 +51,30 @@ class Quiz extends Component{
                 
         const handleSubmit = (e) => {
 
-            e.preventDefault()
+             e && e.preventDefault()
             let score = 0 
             const { answers } = this.state
             
 
-            this.setState({questionToAsk: this.props.questions[this.indexToDisplay],
-                            questionAnswered: true
-            })
             if(answers.length > 0){
-                    answers.map(answer => {
-                        if(correctAnswers.includes(answer)){
-                             return score += 1 
-                             
-                        }else{
-                            return score -= 0.5
-                        }
-                    })  
+                answers.map(answer => {
+                    if(correctAnswers.includes(answer)){
+                        return score += 1 
+                        
+                    }else{
+                        return score -= 0.5
+                    }
+                })  
             }
             this.props.addToScore(score)
+            this.setState({questionToAsk: this.props.questions[this.indexToDisplay],
+                            questionAnswered: true,
+                            answers: []
+            })
         }
-            
-        const handleNextQuestion = (e = {} || e) => {
-            e.preventDefault()
+        
+        const handleNextQuestion = (e) => {
+            e && e.preventDefault()
             if(this.props.questions.length > this.indexToDisplay +1){
                 this.indexToDisplay += 1
                 return(
@@ -127,7 +128,7 @@ class Quiz extends Component{
                     <div className = 'question'>{ question }</div>
                     { randomAnswers() }
                     <div onClick = { handleNextQuestion } className = {`answered-${this.state.questionAnswered} fun-fact`} >{funFact}</div>
-                    <Timer time = {time} />
+                    <Timer time = {time} handleSubmit = {handleSubmit } />
 
                 </div>
                 <div className = 'button-container'>

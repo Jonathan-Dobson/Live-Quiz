@@ -28,6 +28,18 @@ class Timer extends Component{
 
     render(){
         if(this.state.time < 0) clearInterval(this.countDown)
+
+        const runSubmit = () =>{
+            if(this.state.timedOut) {
+                return(null)
+            }else{
+                this.props.handleSubmit()
+                this.setState({ timedOut : true })
+            }
+        }
+        if(this.state.time === 0) runSubmit() 
+
+
            
         const styleEmpty = {
             width: 50,
