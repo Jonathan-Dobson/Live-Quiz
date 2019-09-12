@@ -39,7 +39,7 @@ class Quiz extends Component{
             }))
         }
     }
-
+    
     indexToDisplay = 0
     componentDidMount(){
         this.setState({questionToAsk: this.props.questions[this.indexToDisplay] })
@@ -73,16 +73,18 @@ class Quiz extends Component{
             
         const handleNextQuestion = (e) => {
             e.preventDefault()
-            this.indexToDisplay += 1 
-            return(
-                this.setState({questionToAsk: this.props.questions[this.indexToDisplay],
-                    answer0: false,
-                    answer1: false,
-                    answer2: false,
-                    answer3: false,
-                    questionAnswered: false
-                })
-            )
+            if(this.props.questions.length > this.indexToDisplay +1){
+                this.indexToDisplay += 1
+                return(
+                    this.setState({questionToAsk: this.props.questions[this.indexToDisplay],
+                        answer0: false,
+                        answer1: false,
+                        answer2: false,
+                        answer3: false,
+                        questionAnswered: false
+                    })
+                )
+            }else{console.log('end of quiz')}
         }
 
 
@@ -113,6 +115,9 @@ class Quiz extends Component{
                 return <button className = "submit-button" onClick = { handleSubmit }>Submit</button>
             }
         }
+        if(this.state.time === 0){
+            console.log('hello')
+        }
 
 
         return(
@@ -120,7 +125,7 @@ class Quiz extends Component{
                 <div className = "question-card" >
                     <div className = 'question'>{ question }</div>
                     { randomAnswers() }
-                    <div className = {`answered-${this.state.questionAnswered} fun-fact`} >{funFact}</div>
+                    <div onClick = { handleNextQuestion } className = {`answered-${this.state.questionAnswered} fun-fact`} >{funFact}</div>
                     <Timer time = {time} />
 
                 </div>

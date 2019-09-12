@@ -19,6 +19,10 @@ const questionSchema = new Schema({
     editQuestion: {
         type: Boolean,
         default: false
+    },
+    time: {
+        type: Number,
+        default: 30
     }
 })
 
