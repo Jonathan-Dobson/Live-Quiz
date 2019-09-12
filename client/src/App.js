@@ -12,7 +12,7 @@ import Results from './Player/Results.js'
 
 const App = () => {
     return(
-        <div>
+        <div className ="app-wrapper" >
             <Header />
             
             <Switch>

@@ -39,7 +39,7 @@ class Quiz extends Component{
             }))
         }
     }
-
+    
     indexToDisplay = 0
     componentDidMount(){
         this.setState({questionToAsk: this.props.questions[this.indexToDisplay] })
@@ -50,40 +50,46 @@ class Quiz extends Component{
         let correctAnswersLength = correctAnswers ? correctAnswers.length : 0
                 
         const handleSubmit = (e) => {
-            e.preventDefault()
+
+            e && e.preventDefault()
+
             let score = 0 
-            let possible = correctAnswersLength
             const { answers } = this.state
             
 
-            this.setState({questionToAsk: this.props.questions[this.indexToDisplay],
-                            questionAnswered: true
-            })
             if(answers.length > 0){
-                    answers.map(answer => {
-                        if(correctAnswers.includes(answer)){
-                             return score += 1 
-                             
-                        }else{
-                            return score -= 0.5
-                        }
-                    })  
+
+                answers.map(answer => {
+                    if(correctAnswers.includes(answer)){
+                        return score += 1 
+                        
+                    }else{
+                        return score -= 0.5
+                    }
+                })  
             }
             this.props.addToScore(score)
+
+            this.setState({questionToAsk: this.props.questions[this.indexToDisplay],
+                            questionAnswered: true,
+                            answers: []
+            })
         }
-            
+        
         const handleNextQuestion = (e) => {
-            e.preventDefault()
-            this.indexToDisplay += 1 
-            return(
-                this.setState({questionToAsk: this.props.questions[this.indexToDisplay],
-                    answer0: false,
-                    answer1: false,
-                    answer2: false,
-                    answer3: false,
-                    questionAnswered: false
-                })
-            )
+            e && e.preventDefault()
+            if(this.props.questions.length > this.indexToDisplay +1){
+                this.indexToDisplay += 1
+                return(
+                    this.setState({questionToAsk: this.props.questions[this.indexToDisplay],
+                        answer0: false,
+                        answer1: false,
+                        answer2: false,
+                        answer3: false,
+                        questionAnswered: false
+                    })
+                )
+            }else{console.log('end of quiz')}
         }
 
 
@@ -102,17 +108,20 @@ class Quiz extends Component{
                 if(this.props.questions.length === this.indexToDisplay +1){
                     return (
                         <Link to = '/results'>
-                            <button className = "submit-button" type="button">
+                            <button className = "submit-button button" type="button">
                                 See Results
                             </button>
                         </Link>
                     )
                 } else{
-                    return <button className = "submit-button" onClick = { handleNextQuestion }> Next Question </button>
+                    return <button className = "submit-button button" onClick = { handleNextQuestion }> Next Question </button>
                 }
             }else{
-                return <button className = "submit-button" onClick = { handleSubmit }>Submit</button>
+                return <button className = "submit-button button" onClick = { handleSubmit }>Submit</button>
             }
+        }
+        if(this.state.time === 0){
+            console.log('hello')
         }
 
 
@@ -121,9 +130,13 @@ class Quiz extends Component{
                 <div className = "question-card" >
                     <div className = 'question'>{ question }</div>
                     { randomAnswers() }
-                    <div>{funFact}</div>
-                    <Timer time = {time} />
+                    <div onClick = { handleNextQuestion } className = {`answered-${this.state.questionAnswered} fun-fact`} >{funFact}</div>
 
+                    <Timer time = {time} handleSubmit = {handleSubmit} />
+
+
+                </div>
+                <div className = 'button-container'>
                     { buttonToDisplay() }
 
                 </div>
