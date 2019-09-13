@@ -63,9 +63,8 @@
     min-height: 20pt;
 }
 .answer:hover{
-    height: 40pt;
-    color: white;
-    transition: height 0.5s
+    background: white;
+    transition: 0.2s
 }
 .selectedtrue {
     background: green;
@@ -80,6 +79,7 @@
     background: green;
     bottom: -220pt;
     transition: 0.3s;
+    z-index: 10;
 }
 .answered-true{
     -webkit-transform: translatey(-100%); 
@@ -103,7 +103,7 @@
 /* New Player */
 
 .enter-name{
-    width: 100%; 
+    width: 90%; 
     text-align: center;
     font-size: 20pt;
     padding: 10pt;
@@ -115,8 +115,6 @@ input{
     height: 100%;
     padding: 3px 5px;
     line-height: 16px;
-    margin-right: 10pt;
-    margin-left: 10pt;
     border-style: solid
 }
 
@@ -127,7 +125,6 @@ input{
     margin-top: 10pt;
     border-radius: 3pt;
     text-align: center;
-    margin-left: -16pt
 
 }
 
@@ -135,7 +132,7 @@ input{
 
 .category-wrapper{
 
-    width: 90%;
+    width: 100%;
 
     display: flex;
     flex-direction: column;
@@ -170,12 +167,13 @@ input{
 }
 
 
-/* timer */
+/* timer; the style for the bar is coded in to the timer.js  */
 
 .timer-container{
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
     right: 0;
     height: 100%;
+    z-index: 1;
 }
 
