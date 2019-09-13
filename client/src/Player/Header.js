@@ -24,10 +24,11 @@ class Header extends Component{
             if(!this.props.quizStarted ){
                 return<div className = "name" >Enter Name to Begin Quiz</div>
             }else{
+                console.log(this.props.indexOfQuestion)
                 return (
                     <div> 
                         <div>
-                            {`${ this.props.questions.length - this.props.indexOfQuestion } Questions Remaining`} 
+                            {`${ this.props.quizLength - this.props.indexOfQuestion } Questions Remaining`} 
                         </div>
                         <div>{`Score:${this.props.score}`}</div>
                         

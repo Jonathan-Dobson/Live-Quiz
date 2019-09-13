@@ -17,7 +17,7 @@ class NewPlayer extends Component {
         }
         const handleEnter = () =>  {
             this.props.namePlayer(this.state.playerName)
-            this.props.beginQuiz()
+            
         }
         
         return(

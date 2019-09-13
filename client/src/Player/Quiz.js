@@ -75,14 +75,23 @@ class Quiz extends Component{
                 
             const correctAnswerStrings = correctAnswers.toString()    
                 if(score === correctAnswersLength){
-                    return ( this.setState({  funFactDisplay: `Good Job! Answer: ${correctAnswerStrings} ${funFact}` }))
+                    return ( this.setState({  funFactDisplay: `Good Job! \nAnswer: ${correctAnswerStrings}  \n${funFact}` }))
                 }else if ( score > 0 ){
-                    return ( this.setState({  funFactDisplay: `Almost! Answer: ${correctAnswerStrings} ${funFact}` }) )
+                    return ( this.setState({  funFactDisplay: `Almost! \nAnswer: ${correctAnswerStrings} \n${funFact}` }) )
                 } else {
-                    return ( this.setState({  funFactDisplay: `Wrong! Answer: ${correctAnswerStrings} ${funFact}` }))
+                    return ( this.setState({  funFactDisplay: `Wrong! Your bad and you should feel bad \nAnswer: ${correctAnswerStrings} \n${funFact}` }))
                 }
 
 
+        }
+
+        const splitFunFact = () => {
+            console.log(this.state.funFactDisplay.split('\n'))
+            return this.state.funFactDisplay.split('\n').map((partTodisplay, index) => {
+                return (
+                    <div className= "fun-fact" >{partTodisplay}</div>
+                )
+            })
         }
         
         const handleNextQuestion = (e) => {
@@ -105,10 +114,10 @@ class Quiz extends Component{
         const randomAnswers = () => {
             // this.props.shuffle(answerArray)
             return (answerArray.map((ans, index ) => {
-                let answer = `answer`
+                let answer = `answer${index.toString()}`
                 let toggleSelected = this.state[answer]
                 return ( 
-                    <div className = {`selected${toggleSelected} answer`} onClick = {() => this.toggle(ans, index)} key = {index}>{`${index + 1}: ${ans}`} </div>
+                    <div className = {`selected${toggleSelected} answer`} onClick = {() => this.toggle(ans, index)} key = {index}>{`${ans}`} </div>
                 )
             }))
         } 
@@ -138,7 +147,7 @@ class Quiz extends Component{
                     <Timer time = {time} handleSubmit = {handleSubmit}  />
                     <div className = 'question'>{ question }</div>
                     { randomAnswers() }
-                    <div onClick = { handleNextQuestion } className = {`answered-${this.state.questionAnswered} fun-fact`} >{this.state.funFactDisplay}</div>
+                    <div onClick = { handleNextQuestion } className = {`answered-${this.state.questionAnswered} fun-fact`} >{ splitFunFact() }</div>
 
                 </div>
                 <div className = 'button-container'>
