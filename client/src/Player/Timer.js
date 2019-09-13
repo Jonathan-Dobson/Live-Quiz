@@ -6,7 +6,10 @@ class Timer extends Component{
         this.state = {time: 100}
     }
     componentDidMount(){
-        this.setState({time: this.props.time})
+        this.setState({time: this.props.time,
+                       handleSubmit : this.props.handleSubmit,
+                       size: this.props.time            
+        })
         
     }
     timer = () => {
@@ -28,62 +31,51 @@ class Timer extends Component{
     
     render(){
 
-        if(this.state.time < 0) clearInterval(this.countDown)
-
-
-        const runSubmit = () =>{
-            if(this.state.timedOut) {
-                return(null)
-            }else{
-                this.props.handleSubmit()
-                this.setState({ timedOut : true })
-            }
+        if(this.state.time === 0) {
+            clearInterval(this.countDown)
+            this.state.handleSubmit()
+            this.setState({ time : -1 })
+        
         }
-        if(this.state.time === 0) runSubmit() 
+
 
         const styleEmpty = {
             width: 50,
-            height: 50,
-            background: "blue",
+            height: 208,
+            background: "grey",
             position: "absolute",
             bottom: 0,
             right: 0
         }
         const styleFull = {
             width: 50,
-            height: `${ 100 - (100 * (this.state.time / this.props.time))}%`,
+            height: `${ 100 - (100 * (this.state.time / this.state.size))}%`,
             maxHeight: "100%",
-            background: "red",
+            background: "lightGrey",
             position: "absolute",
             bottom: 0,
             right: 0
         }
-        if(this.state.time > 0){
-            
-            return(
-                <div className = "timer-container" >
-                    <div style = {{position: "relative"}} >{this.state.time}
-                        <div style = {styleEmpty}>
-                            <div style = {styleFull}></div>
-                        </div>
-                            
-                    </div>
-    
-                </div>
-            )
-        } else{
-            return(
-                <div className = "timer-container" >
-                    <div style = {{position: "relative"}} >Time Remaining: 0
-                        <div style = {styleEmpty}>
-                            <div style = {styleFull}></div>
-                        </div>
-                            
-                    </div>
-    
-                </div>
-            )
+
+        const timeDisplay = () => {
+            return(this.state.time >= 0) ? this.state.time : 0
         }
+    
+            
+        return(
+            <div className  >
+                <div className = "timer-container" >
+                    <div style = { styleEmpty }>
+                        <div style = { styleFull }></div>
+                    </div>
+
+                </div>
+                <div className = "time-remaining" >Time Remaining: { timeDisplay() } </div>
+
+            </div>
+        )
+        
+        
     }
 }
 

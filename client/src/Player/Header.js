@@ -13,13 +13,13 @@ class Header extends Component{
     render(){
 
         const displayScore = () => {
-            if(this.props.quizStarted ){
-                return<div>Enter Name to Begin Quiz</div>
+            if(!this.props.quizStarted ){
+                return<div className = "name" >Enter Name to Begin Quiz</div>
             }else{
                 return (
                     <div> 
                         <div>
-                            {`${this.props.questions.length - this.props.indexOfQuestion} Questions Remaining`} 
+                            {`${this.props.questions.length  - this.props.indexOfQuestion} Questions Remaining`} 
                         </div>
                         <div>{`Score:${this.props.score}`}</div>
                         
@@ -28,21 +28,21 @@ class Header extends Component{
             }
         }
         const handleLink = () => {
-            this.props.namePlayer("Welcome To The Game")
             this.props.endQuiz()
+            this.props.namePlayer("Welcome To The Game")
         }
 
 
         return(
             <div className = "header-container" >
-                <div className = "score-card" >
+                <div className = "name" >
                     {this.props.playerName}
                     
                     { displayScore() }
 
                 </div>
                 <ul className = "link-container" >
-                    <Link className = "links" to = '/' onClick = {()=>handleLink} >Home</Link>
+                    <Link className = "links" to = '/' onClick = {()=>handleLink()} >Home</Link>
                     <Link className = "links" to = '/selectcategory'  onClick = {()=>handleLink} >Edit Questions</Link>
                 </ul>
             </div>

@@ -15,6 +15,10 @@ class NewPlayer extends Component {
         const handleSubmit = (e) =>{
             e.preventDefault()
         }
+        const handleEnter = () =>  {
+            this.props.namePlayer(this.state.playerName)
+            this.props.beginQuiz()
+        }
         
         return(
             <div className = "enter-name" >Welcome!
@@ -24,7 +28,7 @@ class NewPlayer extends Component {
                     <input type="text" placeholder = 'Enter Name' value = {this.state.playerName}  name ='playerName' onChange = {handleChange} />
                     <br></br>
                     <Link to="/selectquiz">
-                        <button className = "button" onClick = {()=>this.props.namePlayer(this.state.playerName)} type="button">
+                        <button className = "button" onClick = {()=>handleEnter()} type="button">
                             Enter
 
                         </button>
