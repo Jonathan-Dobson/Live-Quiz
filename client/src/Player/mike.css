@@ -66,15 +66,16 @@ body{
     height: auto;
     min-height: 20pt;
 }
-.answer:hover{
+/* .answer:hover{
     background: white;
     transition: 0.2s
-}
+} */
 .selectedtrue {
-    background: green;
+    background: darkgray;
 }
 .selectedfalse {
-    background: red;
+    background: rgb(162, 154, 155);
+   
 }
 .fun-fact{
     position: absolute;

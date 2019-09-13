@@ -3,10 +3,7 @@ import { withQuestion } from '../QuestionProvider'
 
 
 class Results extends Component{
-    constructor () {
-        super ()
-
-    }
+   
 
     render(){
         return(

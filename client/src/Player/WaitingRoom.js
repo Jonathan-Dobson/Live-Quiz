@@ -3,9 +3,7 @@ import { withQuestion } from '../QuestionProvider'
 import { Link } from 'react-router-dom'
 
 class WaitingRoom extends Component {
-    constructor(){
-        super()
-    }
+   
 
     render(){
         return(

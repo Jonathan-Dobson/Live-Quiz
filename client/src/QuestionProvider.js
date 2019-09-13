@@ -49,7 +49,8 @@ class QuestionProvider extends Component{
     }
     endQuiz = () => {
         this.setState({ quizStarted: false,
-
+                        indexOfQuestion: 0,
+                        quizLength: 0,
                         score: 0,
                         playerName: ''            
         })
@@ -102,8 +103,10 @@ class QuestionProvider extends Component{
    
     getCategoryQuestions = (category) => {
         axios.get(`/questions/?category=${category}`).then(res => {
-            this.setState({questions: res.data })
+            this.setState({questions: res.data,
+                           quizLength: res.data.length })
         })
+        this.beginQuiz()
     }
     showAddQuestion = () => {
         this.setState({addQuestion: true})
