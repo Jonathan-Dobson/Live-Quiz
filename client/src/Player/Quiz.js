@@ -19,7 +19,7 @@ class Quiz extends Component{
                 correctAnswers: [],
                 questionToAsk: {},
                 questionAnswered: false,
-                
+                funFactDisplay: ''
         
             }
     }
@@ -52,17 +52,12 @@ class Quiz extends Component{
         const handleSubmit = (e) => {
 
             e && e.preventDefault()
-
             let score = 0 
             const { answers } = this.state
-            
-
             if(answers.length > 0){
-
                 answers.map(answer => {
                     if(correctAnswers.includes(answer)){
                         return score += 1 
-                        
                     }else{
                         return score -= 0.5
                     }
@@ -70,10 +65,24 @@ class Quiz extends Component{
             }
             this.props.addToScore(score)
 
+            // const funFactDisplay = () => {
+                // }
+                
             this.setState({questionToAsk: this.props.questions[this.indexToDisplay],
                             questionAnswered: true,
                             answers: []
             })
+                
+            const correctAnswerStrings = correctAnswers.toString()    
+                if(score === correctAnswersLength){
+                    return ( this.setState({  funFactDisplay: `Good Job! Answer: ${correctAnswerStrings} ${funFact}` }))
+                }else if ( score > 0 ){
+                    return ( this.setState({  funFactDisplay: `Almost! Answer: ${correctAnswerStrings} ${funFact}` }) )
+                } else {
+                    return ( this.setState({  funFactDisplay: `Wrong! Answer: ${correctAnswerStrings} ${funFact}` }))
+                }
+
+
         }
         
         const handleNextQuestion = (e) => {
@@ -96,7 +105,7 @@ class Quiz extends Component{
         const randomAnswers = () => {
             // this.props.shuffle(answerArray)
             return (answerArray.map((ans, index ) => {
-                let answer = `answer${index.toString()}`
+                let answer = `answer`
                 let toggleSelected = this.state[answer]
                 return ( 
                     <div className = {`selected${toggleSelected} answer`} onClick = {() => this.toggle(ans, index)} key = {index}>{`${index + 1}: ${ans}`} </div>
@@ -120,10 +129,8 @@ class Quiz extends Component{
                 return <button className = "submit-button button" onClick = { handleSubmit }>Submit</button>
             }
         }
-        if(this.state.time === 0){
-            console.log('hello')
-        }
-
+        
+        
 
         return(
             <div key = {_id} className = "question-container">
@@ -131,7 +138,7 @@ class Quiz extends Component{
                     <Timer time = {time} handleSubmit = {handleSubmit}  />
                     <div className = 'question'>{ question }</div>
                     { randomAnswers() }
-                    <div onClick = { handleNextQuestion } className = {`answered-${this.state.questionAnswered} fun-fact`} >{funFact}</div>
+                    <div onClick = { handleNextQuestion } className = {`answered-${this.state.questionAnswered} fun-fact`} >{this.state.funFactDisplay}</div>
 
                 </div>
                 <div className = 'button-container'>
