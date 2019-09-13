@@ -1,10 +1,10 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const path = require('path')
 const app = express()
-const PORT = 8888
+const PORT = process.env.PORT || 8888
+const path = require('path')
 
-mongoose.connect('mongodb://localhost:27017/quiz',{useNewUrlParser: true})
+mongoose.connect(process.env.MONGOLAB_BRONZE_URI || 'mongodb://localhost:27017/quiz',{useNewUrlParser: true})
     .then(()=>console.log('connected to mongoose quiz'))
     .catch(err=>console.log('error',err))
 
