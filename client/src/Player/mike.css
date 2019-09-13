@@ -1,3 +1,7 @@
+body{
+    background: rgb(216, 206, 206)
+}
+
 /* App */
 
 
@@ -75,9 +79,10 @@
 .fun-fact{
     position: absolute;
     width: 100%;
-    height: 220pt;
-    background: green;
-    bottom: -220pt;
+    height: 230pt;
+    background: rgb( 162, 154, 155 );
+    bottom: -302pt;
+    left:-2px;
     transition: 0.3s;
     z-index: 10;
 }
@@ -90,7 +95,7 @@
     transition: 0.3s;
 }
 .button-container{
-        background: mintcream;
+        background: rgb(216, 206, 206);
         position: relative;
         z-index: 99;
         margin-left: -1%;
@@ -176,3 +181,17 @@ input{
     z-index: 1;
 }
 
+
+/* results */
+
+.score-card{
+
+    font-size: 20pt;
+    text-align: center;
+    margin-top: 15pt;
+    padding-top: 15pt
+}
+
+.results-score{
+    margin-top: 10pt
+}

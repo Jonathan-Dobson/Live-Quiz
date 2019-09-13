@@ -10,10 +10,16 @@ class Results extends Component{
 
     render(){
         return(
-            <div>
-                Score:{this.props.score}
+            <div className ="score-card" >
+                <div className = "results-name" >
+                    { this.props.playerName }
+                </div  >
+                <div className = "results-score">
+                    Score:{this.props.score}
+
+                </div>
             
-                <button onClick = { ()=>this.props.addToScore(1) }>Results Props</button>
+                
             </div>
         )
     }

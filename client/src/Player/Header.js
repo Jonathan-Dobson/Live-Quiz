@@ -8,7 +8,15 @@ import './mike.css'
 class Header extends Component{
     constructor(){
         super()
+        this.state = {
+            questions: 0,
+            index: 0
+        }
     }
+
+
+
+
 
     render(){
 
@@ -19,7 +27,7 @@ class Header extends Component{
                 return (
                     <div> 
                         <div>
-                            {`${this.props.questions.length  - this.props.indexOfQuestion} Questions Remaining`} 
+                            {`${ this.props.questions.length - this.props.indexOfQuestion } Questions Remaining`} 
                         </div>
                         <div>{`Score:${this.props.score}`}</div>
                         
